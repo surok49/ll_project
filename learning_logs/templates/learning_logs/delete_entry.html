@@ -1,0 +1,22 @@
+{% extends 'learning_logs/base.html' %}
+
+{% block content %}
+
+<h1>Delete entry:</h1>
+<p>Do you really want to delete this entry?</p>
+
+<p>Topic:{{topic}}</p>
+<p>Entries:</p>
+
+<ul>
+  <li>
+    <p>{{ entry.date_added|date:'M d, Y H:i' }}</p>
+    <p>{{ entry.text }}</p>
+  </li>
+</ul>
+  <form method="POST">
+    {% csrf_token %}
+    <button type="submit">Delete</button>
+  </form>
+
+{% endblock content %}
